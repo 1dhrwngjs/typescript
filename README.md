@@ -30,3 +30,4 @@
 
 - npm i typescript -g
   - tsc index.ts
+- npm i
