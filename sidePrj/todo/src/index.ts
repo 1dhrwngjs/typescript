@@ -1,8 +1,22 @@
+//겹치는 부분을 제거하고 싶다면 { id: number; title: string; done: boolean } <--, 다음과 같이 정의해서 한번에 사용할 수 있다.
+//타입 별칭을 이용하여 , ex) 
+// type Todo = {
+//   id: number;
+//   title: string;
+//   done: boolean;
+// }; let todoItems: Todo[];
+
+interface Todo {
+  id: number;
+  title: string;
+  done: boolean;
+}
+
 //할 일 목록을 받는 배열이기 때문에 : object[] 로 정의
-let todoItems: { id: number; title: string; done: boolean }[];
+let todoItems: Todo[];
 
 // api, 배열이기 때문에 :object[]
-function fetchTodoItems(): { id: number; title: string; done: boolean }[] {
+function fetchTodoItems(): Todo[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -17,7 +31,7 @@ function fetchTodos(): object[] {
   return todos;
 }
 
-function addTodo(todo: { id: number;  title: string; done: boolean }): void {
+function addTodo(todo: Todo): void {
   todoItems.push(todo);
 }
 
@@ -26,10 +40,7 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(
-  index: number,
-  todo: { id: number;  title: string; done: boolean }
-): void {
+function completeTodo(index: number, todo: Todo): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
