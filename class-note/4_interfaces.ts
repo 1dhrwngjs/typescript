@@ -51,9 +51,26 @@ var obj: StringRegexDictionary = {
   cssFile: /\.css$/,
   jsFile: /\.js$/,
 }
-obj['cssFile'] = 'a' //error
+// obj['cssFile'] = 'a' //error
 
 //이 안에 들어오는 값들에 대한 정의가 되었음 (추론이라 표현 함)
-Object.keys(obj).forEach(function(value) {
+Object.keys(obj).forEach(function(value) {});
 
-})
+// interface 확장, 인터페이스를 상속받아서 기존에 있었던 것 보다 더욱 확장해서 사용할 수 있는 것
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Developer extends Person{
+  // 위에 Person을 상속 받았으므로, 중복되는 아래 코드 두줄은 필요 없어진다.
+  // name: string;
+  // age: number;
+  language: string;
+}
+
+var captain: Developer = {
+  age: 100,
+  name: '캡틴',
+  language: 'ts'
+}
