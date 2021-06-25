@@ -1,7 +1,8 @@
-let todoItems;
+//할 일 목록을 받는 배열이기 때문에 : object[] 로 정의
+let todoItems: object[];
 
-// api
-function fetchTodoItems() {
+// api, 배열이기 때문에 :object[]
+function fetchTodoItems(): object[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -11,21 +12,21 @@ function fetchTodoItems() {
 }
 
 // crud methods - api라고 가정함
-function fetchTodos() {
+function fetchTodos(): object[] {
   const todos = fetchTodoItems();
   return todos;
 }
 
-function addTodo(todo) {
+function addTodo(todo: object): void {
   todoItems.push(todo);
 }
 
 
-function deleteTodo(index) {
+function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index, todo) {
+function completeTodo(index: number, todo: object): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
